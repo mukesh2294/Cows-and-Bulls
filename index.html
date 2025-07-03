@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulls and Cows - Multiplayer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bulls and Cows</h1>
+            <div id="roomCodeDisplay" class="room-code"></div>
+        </header>
+        <main>
+            <div id="lobby" class="card">
+                <h2>Welcome to Bulls and Cows</h2>
+                <p>Create a new game or join an existing one to start playing!</p>
+                <button id="createRoomBtn" class="btn btn-primary">Create Room</button>
+                <div class="join-room">
+                    <input type="text" id="joinRoomInput" placeholder="Enter Room Code">
+                    <button id="joinRoomBtn" class="btn btn-secondary">Join Room</button>
+                </div>
+            </div>
+            <div id="gameArea" class="hidden">
+                <div class="game-board card">
+                    <div id="secretNumberArea">
+                        <h3>Set Your Secret Number</h3>
+                        <input type="text" id="secretNumberInput" maxlength="4" placeholder="Enter 4-digit number">
+                        <button id="submitSecretBtn" class="btn btn-primary">Set Secret Number</button>
+                    </div>
+                    <div id="guessArea">
+                        <h3>Make Your Guess</h3>
+                        <input type="text" id="guessInput" maxlength="4" placeholder="Enter your guess">
+                        <button id="submitGuessBtn" class="btn btn-secondary">Make Guess</button>
+                    </div>
+                    <div id="message" class="message"></div>
+                    <div id="resultsArea">
+                        <div id="yourResults" class="result-column">
+                            <h3>Your Guesses</h3>
+                            <div id="yourGuessList" class="guess-list"></div>
+                        </div>
+                        <div id="opponentResults" class="result-column">
+                            <h3>Opponent's Guesses</h3>
+                            <div id="opponentGuessList" class="guess-list"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="chatBox" class="card">
+                    <h3>Chat</h3>
+                    <div id="chatMessages"></div>
+                    <div class="chat-input">
+                        <input type="text" id="chatInput" placeholder="Type a message...">
+                        <button id="sendChatBtn" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; Bulls and Cows by lokesh makineni. All rights reserved.</p>
+        </footer>
+    </div>
+    <div id="confetti"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --background-color: #f0f0f0;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.room-code {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    display: inline-block;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+#lobby h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+#lobby p {
+    margin-bottom: 1rem;
+}
+
+.join-room {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+#gameArea {
+    display: flex;
+    gap: 2rem;
+}
+
+.game-board {
+    flex: 1;
+}
+
+#chatBox {
+    width: 300px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+.btn {
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.message {
+    margin: 1rem 0;
+    font-weight: bold;
+    color: var(--text-color);
+    padding: 1rem;
+    background-color: rgba(76, 175, 80, 0.1);
+    border-radius: var(--border-radius);
+}
+
+#resultsArea {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.result-column {
+    width: 48%;
+}
+
+.guess-list {
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    min-height: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#chatMessages {
+    height: 300px;
+    overflow-y: auto;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+}
+
+.chat-input {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#chatInput {
+    flex: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    border-radius: var(--border-radius);
+}
+
+@media (max-width: 768px) {
+    #gameArea {
+        flex-direction: column;
+    }
+
+    #chatBox {
+        width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.card {
+    animation: fadeIn 0.5s ease-out, slideIn 0.5s ease-out;
+}
+
+.guess-list p {
+    animation: slideIn 0.3s ease-out;
+}
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffd300;
+    top: -10px;
+    opacity: 0;
+    animation: confetti-fall 5s ease-in-out infinite;
+}
+
+@keyframes confetti-fall {
+    0% {
+        opacity: 1;
+        top: -10px;
+        transform: translateX(0) rotateX(0) rotateY(0);
+    }
+    100% {
+        opacity: 0;
+        top: 100vh;
+        transform: translateX(100px) rotateX(360deg) rotateY(360deg);
+    }
+}
